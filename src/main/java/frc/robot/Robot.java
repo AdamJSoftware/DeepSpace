@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.I2C;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import edu.wpi.first.wpilibj.I2C.Port;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,6 +19,8 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain;
   public static Pneumatics pneumatics;
 
+  byte[] toSend = new byte[1];
+
   short cX = 0, cY = 0;
   byte[] dataBuffer = new byte[8];
   ByteBuffer compBuffer = ByteBuffer.wrap(dataBuffer);
@@ -25,6 +29,9 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     pneumatics = new Pneumatics();
     driveTrain = new DriveTrain();
+
+    DigitalModule module = DigitalModule.getInstance(2);
+    i2c = module.getI2C(168);
 
     I2CBus = new I2C(I2C.Port.kOnboard, 0x1E);
 
