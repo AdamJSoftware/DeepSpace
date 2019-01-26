@@ -59,7 +59,7 @@ public class Robot extends TimedRobot {
      * ((int) compBuffer[5])); System.out.println((int) compBuffer[5]);
      * SmartDashboard.putNumber("buffer4", ((int) compBuffer[6]));
      * System.out.println((int) compBuffer[6]); SmartDashboard.putNumber("buffer5",
-     * ((int) compBuffer[7])); System.out.println((int) compBuffer[7]); hey hey
+     * ((int) compBuffer[7])); System.out.println((int) compBuffer[7]);
      */
   }
 
